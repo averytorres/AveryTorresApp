@@ -11,6 +11,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:focusableInTouchMode="true"
     tools:context=".ui.register.RegisterActivity">
 
     <ScrollView
@@ -77,20 +78,24 @@
                 <View
                     android:id="@+id/dividing_line1"
                     android:layout_width="0dp"
-                    android:layout_height="2dp"
+                    android:layout_height="1dp"
                     android:layout_marginTop="60dp"
                     android:layout_marginBottom="60dp"
                     android:background="@color/grey"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/view"
+                    app:layout_constraintStart_toEndOf="@+id/or_circle"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <View
-                    android:id="@+id/view"
+                <TextView
+                    android:id="@+id/or_circle"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:background="@drawable/register_or_circle"
+                    android:fontFamily="@font/btn_font"
+                    android:gravity="center"
+                    android:text="OR"
+                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -99,10 +104,10 @@
                 <View
                     android:id="@+id/dividing_line2"
                     android:layout_width="0dp"
-                    android:layout_height="3dp"
+                    android:layout_height="1dp"
                     android:background="@color/grey"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/view"
+                    app:layout_constraintEnd_toStartOf="@+id/or_circle"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 

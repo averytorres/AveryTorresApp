@@ -2,6 +2,8 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/btn_font</item>
+        <item>@font/cinzel_decorative</item>
+        <item>@font/gravitas_one</item>
         <item>@font/header_font</item>
     </array>
 </resources>
