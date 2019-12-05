@@ -2,6 +2,7 @@ package com.torres.ui.register;
 
 import android.annotation.SuppressLint;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +22,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.torres.R;
+import com.torres.ui.login.LoginActivity;
 
 import androidx.core.app.NavUtils;
 
@@ -215,12 +217,20 @@ public class RegisterActivity extends AppCompatActivity{
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 System.out.println("SIGN IN SUCCESS");
-//                firebaseAuthWithGoogle(account);
+                updateUI(account);
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 System.out.println("SIGN IN FAILED");
-
+                updateUI(null);
             }
+        }
+    }
+
+    private void updateUI(@Nullable GoogleSignInAccount account) {
+        if (account != null) {
+            startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+        } else {
+            //Handle Error
         }
     }
 
