@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary1">#a4eeff</color>
+    <color name="colorPrimaryDark1">#ffa4ee</color>
+    <color name="colorAccent1">#eeffa4</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="grey">#d3d3d3</color>
+    <color name="black">#000000</color>
+
+    <!--gradients-->
+    <color name="et_gradient_start">#eeffa4</color>
+    <color name="et_gradient_stop">#a4eeff</color>
+
+    <color name="black_overlay">#66000000</color>
+
+</resources>

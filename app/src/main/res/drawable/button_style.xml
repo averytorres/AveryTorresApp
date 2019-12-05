@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:left="3dp"
+        android:right="3dp"
+        android:bottom="3dp"
+        android:top="3dp"
+        android:background="@android:drawable/dialog_holo_light_frame">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:shape="rectangle">
+            <gradient
+                android:startColor="@color/et_gradient_start"
+                android:endColor="@color/et_gradient_stop"
+                android:angle="135"/>
+            <padding
+                android:bottom="9dp"
+                android:left="20dp"
+                android:right="20dp"
+                android:top="9dp" />
+            <corners android:radius="50dp" />
+        </shape>
+    </item>
+</layer-list>
