@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "330488619641",
+    "firebase_url": "https://averytorresapp-1575570818556.firebaseio.com",
+    "project_id": "averytorresapp-1575570818556",
+    "storage_bucket": "averytorresapp-1575570818556.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:330488619641:android:f1027ca6e742a0d6d7eaa8",
+        "android_client_info": {
+          "package_name": "com.torres"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "330488619641-7g323ak8fe70fl4lk0a86i9mglldt4c4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.torres",
+            "certificate_hash": "bedf163a4b76d5b584a9340d71d64db0e5d6a564"
+          }
+        },
+        {
+          "client_id": "330488619641-lcg26ei7egp7u2930nnmtuiumd9rr7hk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVkXf5f8_w74bkbCQh6Wwb_dbuoHbEUTs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "330488619641-5r3ups6ohqnlps375gq6pq6td0tkevpt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
