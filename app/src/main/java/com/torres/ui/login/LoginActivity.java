@@ -2,9 +2,11 @@ package com.torres.ui.login;
 
 import android.app.Activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -14,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -24,19 +27,28 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.torres.DatabaseHelper;
+import com.torres.LandingActivity;
+import com.torres.MainActivity;
 import com.torres.R;
+import com.torres.data.model.Session;
 import com.torres.ui.register.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
+    DatabaseHelper db;
+    private Session session;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        db = new DatabaseHelper(this);
         setContentView(R.layout.activity_login);
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
+
+        session = new Session(this);
 
         final EditText usernameEditText = findViewById(R.id.username);
         final EditText passwordEditText = findViewById(R.id.password);
@@ -44,6 +56,13 @@ public class LoginActivity extends AppCompatActivity {
         final Button registerButton = findViewById(R.id.register);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
         final ImageView appIcon = findViewById(R.id.imageView);
+
+        String username = session.getusename();
+
+        //Check If User Is Already Auth
+        if(username != null && !username.isEmpty()){
+            startActivity(new Intent(LoginActivity.this, LandingActivity.class));
+        }
 
         registerButton.setEnabled(true);
 
@@ -139,5 +158,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(LoginActivity.this, LandingActivity.class));
+        finish();
     }
 }

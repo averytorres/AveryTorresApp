@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.MenuItem;
@@ -21,7 +22,9 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.torres.LandingActivity;
 import com.torres.R;
+import com.torres.data.model.Session;
 import com.torres.ui.login.LoginActivity;
 
 import androidx.core.app.NavUtils;
@@ -39,6 +42,8 @@ public class RegisterActivity extends AppCompatActivity{
 
     private View mContentView;
     private View googleSignIn;
+
+    private Session session;
 
     private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
@@ -228,7 +233,12 @@ public class RegisterActivity extends AppCompatActivity{
 
     private void updateUI(@Nullable GoogleSignInAccount account) {
         if (account != null) {
-            startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+            session = new Session(this);
+            session.setusename(account.getDisplayName());
+            Log.w("TEST_INFO","getDisplayName REGISTER: "+account.getDisplayName());
+            Log.w("TEST_INFO","getEmail REGISTER: "+account.getEmail());
+
+            startActivity(new Intent(RegisterActivity.this, LandingActivity.class));
         } else {
             //Handle Error
         }
@@ -240,5 +250,11 @@ public class RegisterActivity extends AppCompatActivity{
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
 //        updateUI(currentUser);
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+        finish();
     }
 }
