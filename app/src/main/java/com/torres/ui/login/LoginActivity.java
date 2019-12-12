@@ -15,6 +15,7 @@ import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.Editable;
+import android.text.Html;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -162,7 +163,30 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(LoginActivity.this, LandingActivity.class));
-        finish();
+
+        session = new Session(this);
+
+        String username = session.getusename();
+
+        //Check If User Is Already Auth
+        if(username == null || username.isEmpty()){
+            new AlertDialog.Builder(this)
+                    .setMessage("Are you sure you want to exit?")
+                    .setCancelable(false)
+                    .setPositiveButton(Html.fromHtml("<font color='#000000'>Yes</font>"), new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Intent intent = new Intent(Intent.ACTION_MAIN);
+                            intent.addCategory(Intent.CATEGORY_HOME);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                        }
+                    })
+                    .setNegativeButton(Html.fromHtml("<font color='#000000'>No</font>"), null)
+                    .show();
+
+        }else{
+            startActivity(new Intent(LoginActivity.this, LandingActivity.class));
+            finish();
+        }
     }
 }
